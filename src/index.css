@@ -1,0 +1,292 @@
+body {
+    background-color: #212426;
+    margin: 0;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*rgba(116, 116, 223, 0.233)*/
+
+.header {
+
+    color: lightsteelblue;
+    text-align: center;
+    margin: 0;
+    border-bottom: 2px solid rgba(116, 116, 223, 0.233);
+    box-shadow: 0.5px 1px 0 dimgray;
+    background-image: linear-gradient(to right, lightsteelblue, rgba(23, 35, 77));
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 2px 5px black;
+    letter-spacing: 1.5px;
+    color: lightsteelblue;
+    font-size: 3.5vw;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 5px;
+    background-image: linear-gradient(to right, #212426, rgba(116, 116, 223, 0.233));
+}
+
+.search {
+    color: lightsteelblue;
+    text-align: center;
+    font-size: 2.5rem;
+    padding-bottom: 10px;
+    margin-top: 0;
+    background-image: linear-gradient(to right, #212426, rgba(116, 116, 223, 0.233));
+}
+
+.search input {
+    border: solid lightsteelblue 2px;
+    font-size: 1.5rem;
+    color: lightsteelblue;
+    background-color: #212426;
+    width: 80%;
+    max-width: 650px;
+    text-align: center;
+    border-radius: 18px;
+    outline: none;
+    height: 2rem;
+    box-shadow: 2px 0px 2px 0px lightsteelblue;
+}
+
+.go {
+    font-size: 1.5rem;
+    height: 2rem;
+    background-color: #212426;
+    color: lightsteelblue;
+    border: none;
+    border-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -45px;
+}
+
+.go:hover {
+    transform: scale(1.05, 1.05);
+    background-color: lightsteelblue;
+    color: #212426;
+}
+
+.preSelectedSearch {
+    text-align: center;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    background-image: linear-gradient(to right, #212426, rgba(116, 116, 223, 0.233));
+}
+
+.option {
+    transition-duration: 0.3s;
+    background-color: #212426;
+    border: solid 2px;
+    border-radius: 8px;
+    height: 3vw;
+    color: lightsteelblue;
+    font-size: 1.6vw;
+    padding-inline: 1.5vw;
+    margin-inline: 15px;
+    width: 17%;
+    text-shadow: 1px 2px 5px black;
+}
+
+.option:hover {
+    transform: scale(1.05, 1.05);
+    background-color: lightsteelblue;
+    color: #212426;
+    text-shadow: none;
+}
+
+.option:active {
+    background-color: #212426;
+    color: lightsteelblue;
+
+}
+
+.selectBar {
+    border: solid 2px;
+    background-color: #212426;
+    border-radius: 8px;
+    height: 3vw;
+    color: lightsteelblue;
+    font-size: 1.6vw;
+    padding-inline: 1.5vw;
+    margin-inline: 15px;
+    width: 17%;
+    text-align: center;
+    outline: none;
+    text-shadow: 1px 2px 5px black;
+    /*-webkit-appearance: none;*/
+}
+
+.selectBar:hover {
+    background-color: lightsteelblue;
+    color: #212426;
+    transform: scale(1.05, 1.05);
+    text-shadow: none;
+}
+
+.results {
+    margin-top: 20px;
+    color: lightsteelblue;
+    background-color: #212426;
+    font-size: 1.3rem;
+    text-align: center;
+    position: relative;
+    margin-inline: 10px;
+}
+
+.container {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    width: 342px;
+    height: 599px;
+    margin: 1.5rem;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+}
+
+.movie:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 4px 8px 0 whitesmoke, 0 6px 20px 0 gray;
+}
+
+.movie span {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #212426;
+    position: absolute;
+    background-color: lightsteelblue;
+    top: 0;
+    width: 100%;
+    padding-left: 2px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.movie div:nth-of-type(2).platforms {
+    background-color: lightsteelblue;
+    height: 92px;
+    position: relative;
+    margin-top: -10px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.notAvailable {
+    background-color: lightcoral;
+    margin-top: -19px;
+    height: 93px;
+    line-height: 85px;
+    color: #212426;
+    text-align: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.empty {
+    color: lightsteelblue;
+    text-align: center;
+    font-size: 3rem;
+}
+
+/*Resposnive*/
+
+@media screen and (max-width: 1000px) {
+
+    h1 {
+        font-size: 5vw;
+    }
+
+    .search input {
+        font-size: 1.3rem;
+        height: 1.8rem;
+    }
+
+    .go {
+        font-size: 1.3rem;
+        height: 1.8rem;
+        margin-left: -42px;
+    }
+
+    .movie {
+        transform: scale(0.9, 0.9);
+    }
+
+    .option {
+        height: 4vw;
+        font-size: 1.6vw;
+
+    }
+
+    .selectBar {
+        height: 4vw;
+        font-size: 1.6vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 7vw;
+    }
+
+    .search{
+        font-size: 1.4rem;
+    }
+
+    .search input {
+        font-size: 0.9rem;
+        height: 1.1rem;
+    }
+
+    .go {
+        font-size: 0.9rem;
+        height: 1.1rem;
+        margin-left: -34px;
+    }
+
+    .movie {
+        transform: scale(0.85, 0.85);
+        margin: 0;
+    }
+    .movie:hover{
+        transform: scale(0.90, 0.90);
+    }
+
+    .option {
+        width: 30%;
+        font-size: 0.6rem;
+        height: 2rem;
+    }
+
+    .selectBar {
+        width: 30%;
+        font-size: 0.6rem;
+        height: 2rem
+    }
+
+    .results {
+        font-size: 1.1rem;
+    }
+}
