@@ -64,13 +64,11 @@ h1 {
     border-radius: 16px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    margin-left: -45px;
+    margin-left: -80px;
 }
 
 .go:hover {
     transform: scale(1.05, 1.05);
-    background-color: lightsteelblue;
-    color: #212426;
 }
 
 .preSelectedSearch {
