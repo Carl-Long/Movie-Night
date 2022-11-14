@@ -20,7 +20,7 @@ function App() {
   const [resultTerm, setResultTerm] = useState('_')
   const [searching, setSearching] = useState(false)
   const [hasSearched, setHasSearched] = useState(false)
-  const [onlyAvailable, setOnlyAvailable] = useState(false)
+ // const [onlyAvailable, setOnlyAvailable] = useState(false)
   const [genres, setGenres] = useState([])
 
   const handleKeyPress = e => {
@@ -255,7 +255,7 @@ function App() {
         <div className='preSelectedSearch'>
           {
             <select className='selectBar' label='Genres' onChange={handleGenreChange}>
-              <option className='genre' key='0' value={''}>Genres</option>
+              <option className='genre' key='0' value={''}>Genres...</option>
               {
                 genres.map((genre) => (
                   <option className='genre' key={genre.id} value={[genre.name, genre.id]}>{genre.name}</option>

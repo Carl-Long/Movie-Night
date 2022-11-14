@@ -111,6 +111,7 @@ h1 {
 }
 
 .selectBar {
+    transition-duration: 0.3s;
     border: solid 2px;
     background-color: #212426;
     border-radius: 8px;
@@ -123,7 +124,7 @@ h1 {
     text-align: center;
     outline: none;
     text-shadow: 1px 2px 5px black;
-    /*-webkit-appearance: none;*/
+    -webkit-appearance: none;
 }
 
 .selectBar:hover {
@@ -170,7 +171,7 @@ h1 {
     text-transform: uppercase;
     font-size: 15px;
     letter-spacing: 2px;
-    font-weight: 500;
+    font-weight: 700;
     color: #212426;
     position: absolute;
     background-color: lightsteelblue;
@@ -233,15 +234,20 @@ h1 {
         transform: scale(0.9, 0.9);
     }
 
+    .movie:hover {
+        transform: scale(0.95, 0.95);
+    }
+
     .option {
         height: 4vw;
-        font-size: 1.6vw;
+        font-size: 1.8vw;
 
     }
 
     .selectBar {
         height: 4vw;
-        font-size: 1.6vw;
+        font-size: 1.8vw;
+        width: max-content;
     }
 }
 
@@ -253,11 +259,12 @@ h1 {
 
     .search{
         font-size: 1.4rem;
+        padding-top: 5px;;
     }
 
     .search input {
         font-size: 0.9rem;
-        height: 1.1rem;
+        height: 1.3em;
     }
 
     .go {
@@ -271,22 +278,33 @@ h1 {
         margin: 0;
     }
     .movie:hover{
-        transform: scale(0.90, 0.90);
+        transform: scale(0.85, 0.85);
+    }
+
+    .preSelectedSearch{
+        overflow-x: scroll;
+        white-space: nowrap;
     }
 
     .option {
-        width: 30%;
-        font-size: 0.6rem;
+        width: max-content;
+        font-size: 1rem;
         height: 2rem;
+        margin-inline: 8px;
+
     }
 
     .selectBar {
-        width: 30%;
-        font-size: 0.6rem;
-        height: 2rem
+        font-size: 1rem;
+        height: 2rem;
+        
     }
 
     .results {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .empty {
+        font-size: 2rem;
     }
 }
