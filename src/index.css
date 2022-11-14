@@ -10,7 +10,6 @@ body {
 /*rgba(116, 116, 223, 0.233)*/
 
 .header {
-
     color: lightsteelblue;
     text-align: center;
     margin: 0;
@@ -38,6 +37,7 @@ h1 {
     font-size: 2.5rem;
     padding-bottom: 10px;
     margin-top: 0;
+    justify-content: center;
     background-image: linear-gradient(to right, #212426, rgba(116, 116, 223, 0.233));
 }
 
@@ -213,7 +213,7 @@ h1 {
 
 /*Resposnive*/
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
 
     h1 {
         font-size: 5vw;
@@ -227,8 +227,8 @@ h1 {
     .go {
         font-size: 1.3rem;
         height: 1.8rem;
-        position: relative;
-        right: 0;
+        margin-left: -75px;
+        width:fit-content;
     }
 
     .go:hover {
@@ -247,7 +247,6 @@ h1 {
     .option {
         height: 4vw;
         font-size: 1.8vw;
-
     }
 
     .selectBar {
@@ -257,7 +256,7 @@ h1 {
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
 
     h1 {
         font-size: 7vw;
@@ -276,12 +275,13 @@ h1 {
     .go {
         font-size: 0.9rem;
         height: 1.1rem;
-        position: relative;
-        right: 0;
+        margin-left: -55px;
+        background-color: none;
+        width: fit-content;
     }
 
     .go:hover {
-        background-color: #212426;
+        background-color: none;
         color: lightsteelblue;
     }
 
@@ -296,7 +296,8 @@ h1 {
     .preSelectedSearch{
         overflow-x: scroll;
         white-space: nowrap;
-        padding-left: 20%;
+        padding-left: 30%;
+        padding-right: 25px;
     }
 
     .option {
@@ -304,7 +305,6 @@ h1 {
         font-size: 1rem;
         height: 2rem;
         margin-inline: 8px;
-
     }
 
     .selectBar {
