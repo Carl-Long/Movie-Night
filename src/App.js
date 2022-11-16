@@ -3,16 +3,7 @@ import './App.css';
 import MovieTile from './MovieTile';
 
 const api_key = '65758923a4428c1a48dbf0f29234d763'
-//sample  call = https://api.themoviedb.org/3/movie/550?api_key=65758923a4428c1a48dbf0f29234d763
-
 const API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}`
-//get provider = https://api.themoviedb.org/3/movie/This is movie id 886396/watch/providers?api_key=65758923a4428c1a48dbf0f29234d763
-//(data.results.GB.flatrate[0].provider_name) gets streaming platform
-const BASE_URL = 'https://api.themoviedb.org/3/movie/'
-
-
-//https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sort_by=popularity.desc&with_genres={genre}&with_watch_monetization_types=flatrate
-
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -140,7 +131,6 @@ function App() {
     setResultTerm('Random Selection');
     let randomPage = getRandomNumber(1, 15);
     let randomMovie = getRandomNumber(0, 19);
-    console.log(randomMovie, randomPage);
 
     const getRandomUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&region=GB&sort_by=popularity.desc&page=${randomPage}&watch_region=GB&with_watch_monetization_types=flatrate`;
     const response = await fetch(`${getRandomUrl}`);
