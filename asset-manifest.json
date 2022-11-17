@@ -1,5 +1,5 @@
 {
-  "main.css": "/movie-night/static/css/main.1d90b986.chunk.css",
+  "main.css": "/movie-night/static/css/main.83174b3e.chunk.css",
   "main.js": "/movie-night/static/js/main.3e76840e.chunk.js",
   "main.js.map": "/movie-night/static/js/main.3e76840e.chunk.js.map",
   "runtime~main.js": "/movie-night/static/js/runtime~main.8d257a65.js",
@@ -9,7 +9,7 @@
   "static/js/3.e8d7c53c.chunk.js": "/movie-night/static/js/3.e8d7c53c.chunk.js",
   "static/js/3.e8d7c53c.chunk.js.map": "/movie-night/static/js/3.e8d7c53c.chunk.js.map",
   "index.html": "/movie-night/index.html",
-  "precache-manifest.989bb80ed9f8a2ec6288ebe47de7b732.js": "/movie-night/precache-manifest.989bb80ed9f8a2ec6288ebe47de7b732.js",
+  "precache-manifest.aa20982b19f8272e191db1dad93e7ee7.js": "/movie-night/precache-manifest.aa20982b19f8272e191db1dad93e7ee7.js",
   "service-worker.js": "/movie-night/service-worker.js",
-  "static/css/main.1d90b986.chunk.css.map": "/movie-night/static/css/main.1d90b986.chunk.css.map"
+  "static/css/main.83174b3e.chunk.css.map": "/movie-night/static/css/main.83174b3e.chunk.css.map"
 }
