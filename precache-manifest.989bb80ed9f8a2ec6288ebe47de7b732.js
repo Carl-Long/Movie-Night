@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "986294279a84f6a3e10b",
-    "url": "/movie-night/static/css/main.1645243b.chunk.css"
+    "revision": "0b25b6909117bc978fd6",
+    "url": "/movie-night/static/css/main.1d90b986.chunk.css"
   },
   {
-    "revision": "986294279a84f6a3e10b",
-    "url": "/movie-night/static/js/main.32cc145d.chunk.js"
+    "revision": "0b25b6909117bc978fd6",
+    "url": "/movie-night/static/js/main.3e76840e.chunk.js"
   },
   {
     "revision": "29d6abc94b60f4b3616a",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/movie-night/static/js/3.e8d7c53c.chunk.js"
   },
   {
-    "revision": "2bc9adac6e96109c242be74319ec8bac",
+    "revision": "7914ece5b5c6542777b5b9055186f06b",
     "url": "/movie-night/index.html"
   }
 ];
