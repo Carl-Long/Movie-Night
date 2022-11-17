@@ -151,7 +151,7 @@ function App() {
   const search = async (title) => {
     if (title === '' || title === ' ') {
       title = '_';
-      alert('Please enter a movie to search')
+      alert('Please enter a movie to search or choose a genre/category')
       return;
     }
 
