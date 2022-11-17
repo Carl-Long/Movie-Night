@@ -11,8 +11,42 @@ function App() {
   const [resultTerm, setResultTerm] = useState('_')
   const [searching, setSearching] = useState(false)
   const [hasSearched, setHasSearched] = useState(false)
- // const [onlyAvailable, setOnlyAvailable] = useState(false)
+  // const [onlyAvailable, setOnlyAvailable] = useState(false)
   const [genres, setGenres] = useState([])
+
+
+  //functions
+
+  const handleApiCall = async (response) => {
+    if (response.ok) {
+      let data = await response.json();
+      data = data.results;
+      const ids = data.map((data) => {
+        return data.id;
+      })
+
+      let streamingInfo = await getStreamingPlatforms(ids);
+      let finalData = addStreamInfoToMovies(data, streamingInfo);
+
+      //Only shows streamable results
+      //if(onlyAvailable === true){
+      //for(let i = 0; i < finalData.length; i++){
+      //  if(finalData[i].providers[0] === 'not available'){
+      //    finalData.splice([i], 1);
+      //    i--;
+      //console.log(finalData);
+      //console.log(finalData[i].original_title);
+      //  }
+      //}
+      //}
+
+      return finalData;
+    }
+    else {
+      alert('Something went wrong')
+      console.log(response)
+    }
+  }
 
   const handleKeyPress = e => {
     if (e.key === 'Enter') {
@@ -38,7 +72,7 @@ function App() {
     data = data.genres;
 
     //removes documentary from genres
-    data.splice([5], 1)
+    //data.splice([5], 1)
     setGenres(data);
   }
 
@@ -47,15 +81,10 @@ function App() {
     setResultTerm(genre);
     const getByGenreUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&sortby=popularity.desc&with_genres=${genreId}&watch_region=GB&with_watch_monetization_types=flatrate`;
     const response = await fetch(`${getByGenreUrl}`);
-    let data = await response.json();
-    data = data.results;
-    const ids = data.map((data) => {
-      return data.id;
-    })
+    const finalData = await handleApiCall(response);
 
-    let streamingInfo = await getStreamingPlatforms(ids);
-    let finalData = addStreamInfoToMovies(data, streamingInfo);
-
+    //Removes any movies that are only streamable on Virgin Tv Go 
+    //as we dont have this.
     for (let i = 0; i < finalData.length; i++) {
       if (finalData[i].providers[0] === 'Virgin TV Go') {
         finalData.splice([i], 1);
@@ -73,31 +102,10 @@ function App() {
     setResultTerm('trending');
     const getTrendingUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${api_key}`;
     const response = await fetch(`${getTrendingUrl}`);
-    let data = await response.json();
-    data = data.results;
-    const ids = data.map((data) => {
-      return data.id;
-    })
-    let streamingInfo = await getStreamingPlatforms(ids);
-
-    let finalData = addStreamInfoToMovies(data, streamingInfo);
-
-    //Only shows streamable results
-    //if(onlyAvailable === true){
-    //for(let i = 0; i < finalData.length; i++){
-    //  if(finalData[i].providers[0] === 'not available'){
-    //    finalData.splice([i], 1);
-    //    i--;
-    //console.log(finalData);
-    //console.log(finalData[i].original_title);
-    //  }
-    //}
-    //}
-
+    const finalData = await handleApiCall(response);
     setMovies(finalData);
     setSearching(false);
     setHasSearched(true);
-
   }
 
   const getTopRated = async () => {
@@ -106,22 +114,13 @@ function App() {
 
     const getTopRatedUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=en-US&region=GB`;
     const response = await fetch(`${getTopRatedUrl}`);
-    let data = await response.json();
-    data = data.results;
-    const ids = data.map((data) => {
-      return data.id;
-    })
-    let streamingInfo = await getStreamingPlatforms(ids);
-
-    let finalData = addStreamInfoToMovies(data, streamingInfo);
-
+    const finalData = await handleApiCall(response);
     setMovies(finalData);
     setSearching(false);
     setHasSearched(true);
   }
 
-
-  function getRandomNumber(min, max) {
+  const getRandomNumber = (min, max) => {
     // get number between min (inclusive) and max (inclusive)
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -134,21 +133,15 @@ function App() {
 
     const getRandomUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=en-US&region=GB&sort_by=popularity.desc&page=${randomPage}&watch_region=GB&with_watch_monetization_types=flatrate`;
     const response = await fetch(`${getRandomUrl}`);
-    let data = await response.json();
-    data = data.results;
-    const ids = data.map((data) => {
-      return data.id;
-    })
-
-    let streamingInfo = await getStreamingPlatforms(ids);
-    let finalData = addStreamInfoToMovies(data, streamingInfo);
+    let finalData = await handleApiCall(response);
 
     finalData = [finalData[randomMovie]];
+    //chooses another selection if only available on Virgin TV go
+    //as we don't have this service
     if (finalData[0].providers[0] === 'Virgin TV Go') {
       getRandom();
     }
     else {
-
       setMovies(finalData);
       setSearching(false);
       setHasSearched(true);
@@ -158,25 +151,32 @@ function App() {
   const search = async (title) => {
     if (title === '' || title === ' ') {
       title = '_';
+      alert('Please enter a movie to search')
+      return;
     }
+
     setSearching(true)
     setResultTerm(title);
-
     const response = await fetch(`${API_URL}&query=${title}`);
-    let data = await response.json();
-    data = data.results.slice(0, 10);
-    const ids = data.map((data) => {
-      return data.id;
-    })
+    if (response.ok) {
+      let data = await response.json();
+      data = data.results.slice(0, 10);
+      const ids = data.map((data) => {
+        return data.id;
+      })
 
-    let streamingInfo = await getStreamingPlatforms(ids);
+      let streamingInfo = await getStreamingPlatforms(ids);
+      let finalData = addStreamInfoToMovies(data, streamingInfo);
 
-    let finalData = addStreamInfoToMovies(data, streamingInfo);
-    console.log(finalData);
-
-    setMovies(finalData);
-    setSearching(false);
-    setHasSearched(true);
+      setMovies(finalData);
+      setSearching(false);
+      setHasSearched(true);
+    }
+    else {
+      alert('Something went wrong, please check the search term you have entered')
+      console.log(response);
+      search('_');
+    }
   }
 
   const getStreamingPlatforms = async (ids) => {
