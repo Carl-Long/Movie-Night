@@ -63,6 +63,7 @@ h1 {
     color: lightsteelblue;
     border: none;
     margin-left: -80px;
+    border-radius: 18px;
 }
 
 .go:hover {
